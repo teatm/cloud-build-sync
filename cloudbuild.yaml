@@ -43,3 +43,6 @@ steps:
 
 images:
  - 'gcr.io/$PROJECT_ID/calendar-app'
+
+options:
+  logging: CLOUD_LOGGING_ONLY

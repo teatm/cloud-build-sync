@@ -14,7 +14,7 @@ steps:
  - name: 'gcr.io/cloud-builders/docker'
    args: ['push', 'gcr.io/$PROJECT_ID/calendar-app']
 
- # ステップ4: Install dependencies and run tests
+ # Step4: Install dependencies and run tests
 
  - name: 'gcr.io/cloud-builders/npm'
    args: ['install']

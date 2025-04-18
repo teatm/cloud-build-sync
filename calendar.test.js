@@ -1,3 +1,5 @@
+const { JSDOM } = require('jsdom');
+
 describe('Simple Calendar', () => {
 
     let document;
@@ -21,10 +23,9 @@ describe('Simple Calendar', () => {
         </html>
       `;
         document = (new JSDOM(html)).window.document;
-
     });
 
-    test('カレンダーがDOMに存在する', () => {
+    test('Calendar DOM exists', () => {
 
         const calendarEl = document.getElementById('calendar');
         calendarEl.innerHTML = '<div class="day"></div>';

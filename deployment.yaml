@@ -15,6 +15,6 @@ spec:
    spec:
      containers:
      - name: calendar-container
-       image: gcr.io/${project_id}/calendar-app:latest
+       image: gcr.io/network-jp-demo/calendar-app:latest
        ports:
        - containerPort: 80

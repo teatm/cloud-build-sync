@@ -7,12 +7,12 @@ steps:
  # Step2: Build Docker image
 
  - name: 'gcr.io/cloud-builders/docker'
-   args: ['build', '-t', 'gcr.io/${PROJECT_ID,,}/calendar-app', '.']
+   args: ['build', '-t', 'gcr.io/$project_id/calendar-app', '.']
 
  # Step3: Push built image to Artifact Registry
 
  - name: 'gcr.io/cloud-builders/docker'
-   args: ['push', 'gcr.io/${PROJECT_ID,,}/calendar-app']
+   args: ['push', 'gcr.io/$project_id/calendar-app']
 
  # Step4: Install dependencies and run tests
 
@@ -25,7 +25,7 @@ steps:
  # Step5: Apply GKE deployment
 
  - name: 'gcr.io/cloud-builders/gcloud'
-   args: ['container', 'clusters', 'get-credentials', 'autopilot-cluster-calendar', '--zone', 'us-central1', '--project', '$PROJECT_ID']
+   args: ['container', 'clusters', 'get-credentials', 'autopilot-cluster-calendar', '--zone', 'us-central1', '--project', '$project_id']
 
  # Step6: Apply deployment and service with kubectl
 
@@ -42,7 +42,4 @@ steps:
      - 'CLOUDSDK_CONTAINER_CLUSTER=autopilot-cluster-calendar'
 
 images:
- - 'gcr.io/${PROJECT_ID,,}/calendar-app'
-
-options:
-  logging: CLOUD_LOGGING_ONLY
+ - 'gcr.io/$project_id/calendar-app'
